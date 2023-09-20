@@ -1,0 +1,12 @@
+PRINCIPAIS REGISTRADORES GERAIS
+•
+32 bits: EAX EBX ECX EDX	
+•
+16 bits: AX BX CX DX	
+•
+8 bits: AH AL BH BL CH CL DH DL
+
+•	EAX,AX,AH,AL : Acumulador. Usado para entrada e saída, aritmética, interrupções de chamadas, etc.
+•	EBX,BX,BH,BL : Registro base. Apontamento base de acesso a memória.
+•	ECX,CX,CH,CL : Contador. Usado em loops de contagens e mudanças.
+•	EDX,DX,DH,DL : Registro de dados. Usado para entrada e saída, aritmética,algumas interrupções de chamadas.

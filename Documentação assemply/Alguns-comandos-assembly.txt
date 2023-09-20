@@ -1,0 +1,52 @@
+                            Lista de instruções Assembly
+
+Instrução                Significado
+MOV a, b                 Carregar Endereço de b em a
+MOV a, [b]               Carregar Valor de b em a
+MOV a, [a + 4]           Carragar Valor de b + 4 bytes (Apontamento, deslocamento
+                         relativo) em a
+MOV b, 3                 Atribui 3 a b
+ADD b, 4                 Soma 4 ao valor de b
+SUB EAX, 4               subtrai 4 de EAX
+MOV ECX, 3               Estrutura for(i = 3; i > 0; i ----), o registrador ECX é o registrador
+label:                   de contagem (automaticamente)
+** outras instruções**
+LOOP label
+CMP EAX, 0               Estrutura if (i == 0) em
+Je labelIF ;vai pro if   Para outras condicionais troque Je pelo que está na tabela
+; else                   Condicionais
+                         OBS: Para fazer várias comparações faça vários CMP na
+                         sequência
+CMP a,b                  if a < b --> registradores "ZF = 0" e "CF = 1"
+                         if a > b --> registradores "ZF = 0" and "CF = 0"
+                         if a = b --> registradores "ZF = 1" and "CF = 0"
+PUSH a                   Coloca a na pilha
+POP a                    Remove último valor da pilha e move para a
+CALL label               Chama um procedimento, empilha o endereço de retorno
+RET                      Retorna do CALL
+mov edx, 0               Exemplo de divisão inteira, onde edx conterá o resto (do div)
+mov eax, 5               eax é o numerador e ecx é o denominador. O resultado será
+mov ecx, 2 ; divisor     colocado em eax após div.
+idiv ecx
+imul ecx, 3              Atribui a ecx 3 vezes o seu valor
+imul edx, eax, 5         Atribui a edx 5 vezes o valor contido em eax
+JMP label                Pula para o label especificado
+%include "io.inc"        Imprimindo resultados… há a opção de print_char ao qual
+                         imprime caracter. print_udesc e print_dec imprimem número
+…                        decimal sem sinal e com sinal, respectivamente (4 indica
+                         inteiros de 4 bytes).
+PRINT_UDEC 4, EAX
+PRINT_UDEC 4, EAX
+PRINT_CHAR ' '
+
+••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+			CODANDO!
+••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+SEÇÕES
+-------
+
+SECTION .data-> dados inicializados
+
+SECTION .bss-> dados não inicializados (ex : inicialização de vetores)
+
+SECTION .text-> código assembly
